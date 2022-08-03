@@ -638,6 +638,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         } else if (brkslctd == 9) {
             tiles.setTileAt(cursor.tilemapLocation(), assets.tile`myTile8`)
         }
+        tiles.setWallAt(cursor.tilemapLocation(), true)
     } else {
         if (mySprite.isHittingTile(CollisionDirection.Bottom)) {
             mySprite.vy = -165
