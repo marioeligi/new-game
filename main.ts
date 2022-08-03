@@ -1,5 +1,6 @@
-function MARIO () {
-    controller.moveSprite(cursor, 100, 0)
+function Play () {
+    play = 1
+    cursor.destroy()
     mySprite = sprites.create(img`
         . . . 2 2 2 2 2 . . . . 
         . . 2 2 2 2 2 2 2 2 2 . 
@@ -19,6 +20,7 @@ function MARIO () {
         e e e e . . . . e e e e 
         `, SpriteKind.Player)
     mySprite.ay = 200
+    scene.cameraFollowSprite(mySprite)
     characterAnimations.loopFrames(
     mySprite,
     [img`
@@ -305,10 +307,274 @@ function MARIO () {
     100,
     characterAnimations.rule(Predicate.MovingRight, Predicate.HittingWallDown)
     )
+    tiles.placeOnRandomTile(mySprite, assets.tile`myTile9`)
+    controller.moveSprite(mySprite, 100, 0)
 }
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-	
+    if (play == 0) {
+        brkslctd += 1
+        if (brkslctd == 10) {
+            brkslctd = 0
+        }
+        if (brkslctd == 0) {
+            animation.runImageAnimation(
+            brick_selected,
+            [img`
+                4 d d d d d d d d f 4 d d d d 4 
+                d 4 4 4 4 4 4 4 4 f d 4 4 4 4 d 
+                d 4 4 4 4 4 4 4 4 f d 4 4 4 4 d 
+                d 4 4 4 4 4 4 4 4 f d 4 4 4 4 d 
+                d 4 4 4 4 4 4 4 4 f d f 4 4 4 d 
+                d 4 4 4 4 4 4 4 4 f 4 f f f f 4 
+                d 4 4 4 4 4 4 4 4 f d d d d d f 
+                d 4 4 4 4 4 4 4 4 f d 4 4 4 4 f 
+                d 4 4 4 4 4 4 4 4 f d 4 4 4 4 f 
+                d 4 4 4 4 4 4 4 f d 4 4 4 4 4 f 
+                f f 4 4 4 4 4 4 f d 4 4 4 4 4 f 
+                d d f f 4 4 4 f d 4 4 4 4 4 4 f 
+                d 4 d d f f f f d 4 4 4 4 4 4 f 
+                d 4 4 4 d d d f d 4 4 4 4 4 4 f 
+                d 4 4 4 4 4 4 f d 4 4 4 4 4 f f 
+                4 f f f f f f 4 d f f f f f f 4 
+                `],
+            500,
+            false
+            )
+        } else if (brkslctd == 1) {
+            animation.runImageAnimation(
+            brick_selected,
+            [img`
+                f f f f f f f f f f f f f f f f 
+                f 4 4 4 4 4 4 4 4 4 4 4 4 4 4 f 
+                f 4 f 4 4 4 4 4 4 4 4 4 4 f 4 f 
+                f 4 4 4 4 4 4 4 4 4 4 4 4 4 4 f 
+                f 4 4 4 4 4 4 4 4 4 4 4 4 4 4 f 
+                f 4 4 4 4 4 4 4 4 4 4 4 4 4 4 f 
+                f 4 4 4 4 4 4 4 4 4 4 4 4 4 4 f 
+                f 4 4 4 4 4 4 4 4 4 4 4 4 4 4 f 
+                f 4 4 4 4 4 4 4 4 4 4 4 4 4 4 f 
+                f 4 4 4 4 4 4 4 4 4 4 4 4 4 4 f 
+                f 4 4 4 4 4 4 4 4 4 4 4 4 4 4 f 
+                f 4 4 4 4 4 4 4 4 4 4 4 4 4 4 f 
+                f 4 4 4 4 4 4 4 4 4 4 4 4 4 4 f 
+                f 4 f 4 4 4 4 4 4 4 4 4 4 f 4 f 
+                f 4 4 4 4 4 4 4 4 4 4 4 4 4 4 f 
+                f f f f f f f f f f f f f f f f 
+                `],
+            500,
+            false
+            )
+        } else if (brkslctd == 2) {
+            animation.runImageAnimation(
+            brick_selected,
+            [img`
+                4 d d d d d d d d d d d d d d f 
+                d 4 d d d d d d d d d d d d f f 
+                d d 4 d d d d d d d d d d f f f 
+                d d d 4 d d d d d d d d f f f f 
+                d d d d 4 4 4 4 4 4 4 4 f f f f 
+                d d d d 4 4 4 4 4 4 4 4 f f f f 
+                d d d d 4 4 4 4 4 4 4 4 f f f f 
+                d d d d 4 4 4 4 4 4 4 4 f f f f 
+                d d d d 4 4 4 4 4 4 4 4 f f f f 
+                d d d d 4 4 4 4 4 4 4 4 f f f f 
+                d d d d 4 4 4 4 4 4 4 4 f f f f 
+                d d d d 4 4 4 4 4 4 4 4 f f f f 
+                d d d f f f f f f f f f 4 f f f 
+                d d f f f f f f f f f f f 4 f f 
+                d f f f f f f f f f f f f f 4 f 
+                f f f f f f f f f f f f f f f 4 
+                `],
+            500,
+            false
+            )
+        } else if (brkslctd == 3) {
+            animation.runImageAnimation(
+            brick_selected,
+            [img`
+                . 4 4 4 4 4 4 4 4 4 4 4 4 4 4 f 
+                4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 f 
+                4 5 f 5 5 5 5 5 5 5 5 5 5 f 5 f 
+                4 5 5 5 5 4 4 4 4 4 5 5 5 5 5 f 
+                4 5 5 5 4 4 f f f 4 4 5 5 5 5 f 
+                4 5 5 5 4 4 f 5 5 4 4 5 5 5 5 f 
+                4 5 5 5 4 4 f 5 5 4 4 f 5 5 5 f 
+                4 5 5 5 5 f f 5 4 4 4 f 5 5 5 f 
+                4 5 5 5 5 5 5 4 4 f f f 5 5 5 f 
+                4 5 5 5 5 5 5 4 4 f 5 5 5 5 5 f 
+                4 5 5 5 5 5 5 5 f f 5 5 5 5 5 f 
+                4 5 5 5 5 5 5 4 4 5 5 5 5 5 5 f 
+                4 5 5 5 5 5 5 4 4 f 5 5 5 5 5 f 
+                4 5 f 5 5 5 5 5 f f 5 5 5 f 5 f 
+                4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 f 
+                f f f f f f f f f f f f f f f f 
+                `],
+            500,
+            false
+            )
+        } else if (brkslctd == 4) {
+            animation.runImageAnimation(
+            brick_selected,
+            [img`
+                4 4 4 4 4 4 4 f 4 4 4 4 4 4 4 f 
+                4 4 4 4 4 4 4 f 4 4 4 4 4 4 4 f 
+                4 4 4 4 4 4 4 f 4 4 4 4 4 4 4 f 
+                f f f f f f f f f f f f f f f f 
+                4 4 4 f 4 4 4 4 4 4 4 f 4 4 4 4 
+                4 4 4 f 4 4 4 4 4 4 4 f 4 4 4 4 
+                4 4 4 f 4 4 4 4 4 4 4 f 4 4 4 4 
+                f f f f f f f f f f f f f f f f 
+                4 4 4 4 4 4 4 f 4 4 4 4 4 4 4 f 
+                4 4 4 4 4 4 4 f 4 4 4 4 4 4 4 f 
+                4 4 4 4 4 4 4 f 4 4 4 4 4 4 4 f 
+                f f f f f f f f f f f f f f f f 
+                4 4 4 f 4 4 4 4 4 4 4 f 4 4 4 4 
+                4 4 4 f 4 4 4 4 4 4 4 f 4 4 4 4 
+                4 4 4 f 4 4 4 4 4 4 4 f 4 4 4 4 
+                f f f f f f f f f f f f f f f f 
+                `],
+            500,
+            false
+            )
+        } else if (brkslctd == 5) {
+            animation.runImageAnimation(
+            brick_selected,
+            [img`
+                . . . . . 5 5 5 5 f f . . . . . 
+                . . . . 5 5 5 5 5 5 f f . . . . 
+                . . . . 5 5 5 5 5 5 f f . . . . 
+                . . . 5 5 5 4 4 5 5 5 f f . . . 
+                . . . 5 5 4 5 5 f 5 5 f f . . . 
+                . . . 5 5 4 5 5 f 5 5 f f . . . 
+                . . . 5 5 4 5 5 f 5 5 f f . . . 
+                . . . 5 5 4 5 5 f 5 5 f f . . . 
+                . . . 5 5 4 5 5 f 5 5 f f . . . 
+                . . . 5 5 4 5 5 f 5 5 f f . . . 
+                . . . 5 5 4 5 5 f 5 5 f f . . . 
+                . . . 5 5 4 5 5 f 5 5 f f . . . 
+                . . . 5 5 5 f f 5 5 5 f f . . . 
+                . . . . 5 5 5 5 5 5 f f . . . . 
+                . . . . 5 5 5 5 5 5 f f . . . . 
+                . . . . . 5 5 5 5 f f . . . . . 
+                `],
+            500,
+            false
+            )
+        } else if (brkslctd == 6) {
+            animation.runImageAnimation(
+            brick_selected,
+            [img`
+                3 3 3 3 3 3 3 3 3 7 3 7 7 7 f . 
+                3 3 3 3 3 3 3 3 7 3 7 3 7 7 f . 
+                3 3 3 3 3 3 3 3 3 7 3 7 7 7 f . 
+                3 3 3 3 3 3 3 3 7 3 7 3 7 7 f . 
+                3 3 3 3 3 3 3 3 3 7 3 7 7 7 f . 
+                3 3 3 3 3 3 3 3 7 3 7 3 7 7 f . 
+                3 3 3 3 3 3 3 3 3 7 3 7 7 7 f . 
+                3 3 3 3 3 3 3 3 7 3 7 3 7 7 f . 
+                3 3 3 3 3 3 3 3 3 7 3 7 7 7 f . 
+                3 3 3 3 3 3 3 3 7 3 7 3 7 7 f . 
+                3 3 3 3 3 3 3 3 3 7 3 7 7 7 f . 
+                3 3 3 3 3 3 3 3 7 3 7 3 7 7 f . 
+                3 3 3 3 3 3 3 3 3 7 3 7 7 7 f . 
+                3 3 3 3 3 3 3 3 7 3 7 3 7 7 f . 
+                3 3 3 3 3 3 3 3 3 7 3 7 7 7 f . 
+                3 3 3 3 3 3 3 3 7 3 7 3 7 7 f . 
+                `],
+            500,
+            false
+            )
+        } else if (brkslctd == 7) {
+            animation.runImageAnimation(
+            brick_selected,
+            [img`
+                . f 7 7 7 3 3 3 7 7 7 7 3 3 7 3 
+                . f 7 7 7 3 3 3 7 7 7 7 3 3 7 3 
+                . f 7 7 7 3 3 3 7 7 7 7 3 3 7 3 
+                . f 7 7 7 3 3 3 7 7 7 7 3 3 7 3 
+                . f 7 7 7 3 3 3 7 7 7 7 3 3 7 3 
+                . f 7 7 7 3 3 3 7 7 7 7 3 3 7 3 
+                . f 7 7 7 3 3 3 7 7 7 7 3 3 7 3 
+                . f 7 7 7 3 3 3 7 7 7 7 3 3 7 3 
+                . f 7 7 7 3 3 3 7 7 7 7 3 3 7 3 
+                . f 7 7 7 3 3 3 7 7 7 7 3 3 7 3 
+                . f 7 7 7 3 3 3 7 7 7 7 3 3 7 3 
+                . f 7 7 7 3 3 3 7 7 7 7 3 3 7 3 
+                . f 7 7 7 3 3 3 7 7 7 7 3 3 7 3 
+                . f 7 7 7 3 3 3 7 7 7 7 3 3 7 3 
+                . f 7 7 7 3 3 3 7 7 7 7 3 3 7 3 
+                . f 7 7 7 3 3 3 7 7 7 7 3 3 7 3 
+                `],
+            500,
+            false
+            )
+        } else if (brkslctd == 8) {
+            animation.runImageAnimation(
+            brick_selected,
+            [img`
+                f f f f f f f f f f f f f f f f 
+                f 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+                f 3 3 3 3 3 7 7 7 7 7 3 3 3 3 3 
+                f 7 7 7 3 3 7 7 7 7 7 3 3 7 7 3 
+                f 7 7 7 3 3 7 7 7 7 7 3 3 7 7 3 
+                f 7 7 7 3 3 7 7 7 7 7 3 3 7 7 3 
+                f 7 7 7 3 3 7 7 7 7 7 3 3 7 7 3 
+                f 7 7 7 3 3 7 7 7 7 7 3 3 7 7 3 
+                f 7 7 7 3 3 7 7 7 7 7 3 3 7 7 3 
+                f 7 7 7 3 3 7 7 7 7 7 3 3 7 7 3 
+                f 7 7 7 3 3 7 7 7 7 7 3 3 7 7 3 
+                f 7 7 7 3 3 7 7 7 7 7 3 3 7 7 3 
+                f 7 7 7 3 3 7 7 7 7 7 3 3 7 7 3 
+                f 7 7 7 3 3 7 7 7 7 7 3 3 7 7 3 
+                f 7 7 7 3 3 7 7 7 7 7 3 3 7 7 3 
+                f f f f f f f f f f f f f f f f 
+                `],
+            500,
+            false
+            )
+        } else if (brkslctd == 9) {
+            animation.runImageAnimation(
+            brick_selected,
+            [img`
+                f f f f f f f f f f f f f f f f 
+                7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 f 
+                3 3 3 3 3 3 3 3 7 3 7 3 7 7 7 f 
+                3 3 3 3 3 3 3 3 3 7 3 7 7 7 7 f 
+                3 3 3 3 3 3 3 3 7 3 7 3 7 7 7 f 
+                3 3 3 3 3 3 3 3 3 7 3 7 7 7 7 f 
+                3 3 3 3 3 3 3 3 7 3 7 3 7 7 7 f 
+                3 3 3 3 3 3 3 3 3 7 3 7 7 7 7 f 
+                3 3 3 3 3 3 3 3 7 3 7 3 7 7 7 f 
+                3 3 3 3 3 3 3 3 3 7 3 7 7 7 7 f 
+                3 3 3 3 3 3 3 3 7 3 7 3 7 7 7 f 
+                3 3 3 3 3 3 3 3 3 7 3 7 7 7 7 f 
+                3 3 3 3 3 3 3 3 7 3 7 3 7 7 7 f 
+                3 3 3 3 3 3 3 3 3 7 3 7 7 7 7 f 
+                3 3 3 3 3 3 3 3 7 3 7 3 7 7 7 f 
+                f f f f f f f f f f f f f f f f 
+                `],
+            500,
+            false
+            )
+        }
+    } else {
+        controller.moveSprite(mySprite, 125, 0)
+    }
 })
+function Make () {
+    play = 0
+    cursor = sprites.create(img`
+        . f . . f . 
+        f f . . f f 
+        . . . . . . 
+        . . . . . . 
+        f f . . f f 
+        . f . . f . 
+        `, SpriteKind.Player)
+    controller.moveSprite(cursor, 100, 100)
+    scene.cameraFollowSprite(cursor)
+    tiles.placeOnRandomTile(mySprite, assets.tile`myTile9`)
+}
 function Load () {
     tiles.setCurrentTilemap(tilemap`level3`)
     char = 0
@@ -350,14 +616,37 @@ function Load () {
     }
 }
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    tiles.setTileAt(cursor.tilemapLocation(), assets.tile`myTile0`)
-})
-controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
-	
+    if (play == 0) {
+        if (brkslctd == 0) {
+            tiles.setTileAt(cursor.tilemapLocation(), assets.tile`myTile`)
+        } else if (brkslctd == 1) {
+            tiles.setTileAt(cursor.tilemapLocation(), assets.tile`myTile0`)
+        } else if (brkslctd == 2) {
+            tiles.setTileAt(cursor.tilemapLocation(), assets.tile`myTile1`)
+        } else if (brkslctd == 3) {
+            tiles.setTileAt(cursor.tilemapLocation(), assets.tile`myTile2`)
+        } else if (brkslctd == 4) {
+            tiles.setTileAt(cursor.tilemapLocation(), assets.tile`myTile3`)
+        } else if (brkslctd == 5) {
+            tiles.setTileAt(cursor.tilemapLocation(), assets.tile`myTile4`)
+        } else if (brkslctd == 6) {
+            tiles.setTileAt(cursor.tilemapLocation(), assets.tile`myTile5`)
+        } else if (brkslctd == 7) {
+            tiles.setTileAt(cursor.tilemapLocation(), assets.tile`myTile6`)
+        } else if (brkslctd == 8) {
+            tiles.setTileAt(cursor.tilemapLocation(), assets.tile`myTile7`)
+        } else if (brkslctd == 9) {
+            tiles.setTileAt(cursor.tilemapLocation(), assets.tile`myTile8`)
+        }
+    } else {
+        if (mySprite.isHittingTile(CollisionDirection.Bottom)) {
+            mySprite.vy = -165
+        }
+    }
 })
 controller.menu.onEvent(ControllerButtonEvent.Pressed, function () {
     story.startCutscene(function () {
-        story.showPlayerChoices("Save", "Load", "Delete Save Data")
+        story.showPlayerChoices("Save", "Load", "Create 1-1", "Make/Play", "Reset")
         if (story.getLastAnswer() == "Save") {
             Save()
         } else if (story.getLastAnswer() == "Load") {
@@ -366,8 +655,21 @@ controller.menu.onEvent(ControllerButtonEvent.Pressed, function () {
             if (blockSettings.exists("level")) {
                 blockSettings.remove("level")
             }
+        } else if (story.getLastAnswer() == "Make/Play") {
+            if (play == 0) {
+                Play()
+            } else {
+                Make()
+            }
+        } else if (story.getLastAnswer() == "Reset") {
+            tiles.setCurrentTilemap(tilemap`level4`)
         }
     })
+})
+controller.B.onEvent(ControllerButtonEvent.Released, function () {
+    if (play == 1) {
+        controller.moveSprite(mySprite, 100, 0)
+    }
 })
 function Save () {
     level = ""
@@ -410,18 +712,36 @@ let y = 0
 let x = 0
 let char = 0
 let mySprite: Sprite = null
+let play = 0
 let cursor: Sprite = null
+let brkslctd = 0
+let brick_selected: Sprite = null
 tiles.setCurrentTilemap(tilemap`level1`)
 scene.setBackgroundColor(9)
 color.setColor(4, color.rgb(255, 90, 0))
 color.setColor(3, color.rgb(0, 150, 0))
-cursor = sprites.create(img`
-    . f . . f . 
-    f f . . f f 
-    . . . . . . 
-    . . . . . . 
-    f f . . f f 
-    . f . . f . 
+Make()
+brick_selected = sprites.create(img`
+    4 d d d d d d d d f 4 d d d d 4 
+    d 4 4 4 4 4 4 4 4 f d 4 4 4 4 d 
+    d 4 4 4 4 4 4 4 4 f d 4 4 4 4 d 
+    d 4 4 4 4 4 4 4 4 f d 4 4 4 4 d 
+    d 4 4 4 4 4 4 4 4 f d f 4 4 4 d 
+    d 4 4 4 4 4 4 4 4 f 4 f f f f 4 
+    d 4 4 4 4 4 4 4 4 f d d d d d f 
+    d 4 4 4 4 4 4 4 4 f d 4 4 4 4 f 
+    d 4 4 4 4 4 4 4 4 f d 4 4 4 4 f 
+    d 4 4 4 4 4 4 4 f d 4 4 4 4 4 f 
+    f f 4 4 4 4 4 4 f d 4 4 4 4 4 f 
+    d d f f 4 4 4 f d 4 4 4 4 4 4 f 
+    d 4 d d f f f f d 4 4 4 4 4 4 f 
+    d 4 4 4 d d d f d 4 4 4 4 4 4 f 
+    d 4 4 4 4 4 4 f d 4 4 4 4 4 f f 
+    4 f f f f f f 4 d f f f f f f 4 
     `, SpriteKind.Player)
-controller.moveSprite(cursor, 100, 100)
-scene.cameraFollowSprite(cursor)
+brick_selected.setStayInScreen(true)
+brkslctd = 0
+cursor.setFlag(SpriteFlag.GhostThroughWalls, true)
+forever(function () {
+    brick_selected.setPosition(0, 0)
+})
