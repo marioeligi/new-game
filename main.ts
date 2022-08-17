@@ -313,7 +313,7 @@ function Play () {
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     if (play == 0) {
         brkslctd += 1
-        if (brkslctd == 10) {
+        if (brkslctd == 11) {
             brkslctd = 0
         }
         if (brkslctd == 0) {
@@ -464,22 +464,22 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
             animation.runImageAnimation(
             brick_selected,
             [img`
-                3 3 3 3 3 3 3 3 3 7 3 7 7 7 f . 
-                3 3 3 3 3 3 3 3 7 3 7 3 7 7 f . 
-                3 3 3 3 3 3 3 3 3 7 3 7 7 7 f . 
-                3 3 3 3 3 3 3 3 7 3 7 3 7 7 f . 
-                3 3 3 3 3 3 3 3 3 7 3 7 7 7 f . 
-                3 3 3 3 3 3 3 3 7 3 7 3 7 7 f . 
-                3 3 3 3 3 3 3 3 3 7 3 7 7 7 f . 
-                3 3 3 3 3 3 3 3 7 3 7 3 7 7 f . 
-                3 3 3 3 3 3 3 3 3 7 3 7 7 7 f . 
-                3 3 3 3 3 3 3 3 7 3 7 3 7 7 f . 
-                3 3 3 3 3 3 3 3 3 7 3 7 7 7 f . 
-                3 3 3 3 3 3 3 3 7 3 7 3 7 7 f . 
-                3 3 3 3 3 3 3 3 3 7 3 7 7 7 f . 
-                3 3 3 3 3 3 3 3 7 3 7 3 7 7 f . 
-                3 3 3 3 3 3 3 3 3 7 3 7 7 7 f . 
-                3 3 3 3 3 3 3 3 7 3 7 3 7 7 f . 
+                . f 7 7 7 3 3 3 7 7 7 7 3 3 7 3 
+                . f 7 7 7 3 3 3 7 7 7 7 3 3 7 3 
+                . f 7 7 7 3 3 3 7 7 7 7 3 3 7 3 
+                . f 7 7 7 3 3 3 7 7 7 7 3 3 7 3 
+                . f 7 7 7 3 3 3 7 7 7 7 3 3 7 3 
+                . f 7 7 7 3 3 3 7 7 7 7 3 3 7 3 
+                . f 7 7 7 3 3 3 7 7 7 7 3 3 7 3 
+                . f 7 7 7 3 3 3 7 7 7 7 3 3 7 3 
+                . f 7 7 7 3 3 3 7 7 7 7 3 3 7 3 
+                . f 7 7 7 3 3 3 7 7 7 7 3 3 7 3 
+                . f 7 7 7 3 3 3 7 7 7 7 3 3 7 3 
+                . f 7 7 7 3 3 3 7 7 7 7 3 3 7 3 
+                . f 7 7 7 3 3 3 7 7 7 7 3 3 7 3 
+                . f 7 7 7 3 3 3 7 7 7 7 3 3 7 3 
+                . f 7 7 7 3 3 3 7 7 7 7 3 3 7 3 
+                . f 7 7 7 3 3 3 7 7 7 7 3 3 7 3 
                 `],
             500,
             false
@@ -488,22 +488,22 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
             animation.runImageAnimation(
             brick_selected,
             [img`
-                . f 7 7 7 3 3 3 7 7 7 7 3 3 7 3 
-                . f 7 7 7 3 3 3 7 7 7 7 3 3 7 3 
-                . f 7 7 7 3 3 3 7 7 7 7 3 3 7 3 
-                . f 7 7 7 3 3 3 7 7 7 7 3 3 7 3 
-                . f 7 7 7 3 3 3 7 7 7 7 3 3 7 3 
-                . f 7 7 7 3 3 3 7 7 7 7 3 3 7 3 
-                . f 7 7 7 3 3 3 7 7 7 7 3 3 7 3 
-                . f 7 7 7 3 3 3 7 7 7 7 3 3 7 3 
-                . f 7 7 7 3 3 3 7 7 7 7 3 3 7 3 
-                . f 7 7 7 3 3 3 7 7 7 7 3 3 7 3 
-                . f 7 7 7 3 3 3 7 7 7 7 3 3 7 3 
-                . f 7 7 7 3 3 3 7 7 7 7 3 3 7 3 
-                . f 7 7 7 3 3 3 7 7 7 7 3 3 7 3 
-                . f 7 7 7 3 3 3 7 7 7 7 3 3 7 3 
-                . f 7 7 7 3 3 3 7 7 7 7 3 3 7 3 
-                . f 7 7 7 3 3 3 7 7 7 7 3 3 7 3 
+                3 3 3 3 3 3 3 3 3 7 3 7 7 7 f . 
+                3 3 3 3 3 3 3 3 7 3 7 3 7 7 f . 
+                3 3 3 3 3 3 3 3 3 7 3 7 7 7 f . 
+                3 3 3 3 3 3 3 3 7 3 7 3 7 7 f . 
+                3 3 3 3 3 3 3 3 3 7 3 7 7 7 f . 
+                3 3 3 3 3 3 3 3 7 3 7 3 7 7 f . 
+                3 3 3 3 3 3 3 3 3 7 3 7 7 7 f . 
+                3 3 3 3 3 3 3 3 7 3 7 3 7 7 f . 
+                3 3 3 3 3 3 3 3 3 7 3 7 7 7 f . 
+                3 3 3 3 3 3 3 3 7 3 7 3 7 7 f . 
+                3 3 3 3 3 3 3 3 3 7 3 7 7 7 f . 
+                3 3 3 3 3 3 3 3 7 3 7 3 7 7 f . 
+                3 3 3 3 3 3 3 3 3 7 3 7 7 7 f . 
+                3 3 3 3 3 3 3 3 7 3 7 3 7 7 f . 
+                3 3 3 3 3 3 3 3 3 7 3 7 7 7 f . 
+                3 3 3 3 3 3 3 3 7 3 7 3 7 7 f . 
                 `],
             500,
             false
@@ -556,6 +556,30 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
             500,
             false
             )
+        } else {
+            animation.runImageAnimation(
+            brick_selected,
+            [img`
+                . . . . . . . . . . 8 . . . . . 
+                . . . . . . . . . 8 8 8 . . . . 
+                . . . . . . . . 8 8 8 8 8 . . . 
+                . . . . . . . 8 8 8 8 8 8 8 . . 
+                . . . . . . 8 8 8 8 8 8 8 8 8 . 
+                . . . . . 1 8 8 8 8 8 8 8 8 8 8 
+                . . . . 1 1 1 8 8 8 8 8 8 8 8 . 
+                . . . 1 1 1 1 1 8 8 8 8 8 8 . . 
+                . . 1 1 1 1 1 1 1 8 8 8 8 . . . 
+                . 1 1 1 1 1 1 1 1 1 8 8 . . . . 
+                1 1 1 1 1 1 1 1 1 1 1 . . . . . 
+                . 1 1 1 1 1 1 1 1 1 . . . . . . 
+                . . 1 1 1 1 1 1 1 . . . . . . . 
+                . . . 1 1 1 1 1 . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                `],
+            500,
+            false
+            )
         }
     } else {
         controller.moveSprite(mySprite, 125, 0)
@@ -584,8 +608,10 @@ function Load () {
         level = blockSettings.readString("level")
         for (let index = 0; index < 200; index++) {
             for (let index = 0; index < 16; index++) {
+                tiles.setWallAt(tiles.getTileLocation(y, x), true)
                 if (blockSettings.readString("level").charAt(char) == "_") {
                     tiles.setTileAt(tiles.getTileLocation(y, x), assets.tile`transparency16`)
+                    tiles.setWallAt(tiles.getTileLocation(y, x), true)
                 } else if (blockSettings.readString("level").charAt(char) == "g") {
                     tiles.setTileAt(tiles.getTileLocation(y, x), assets.tile`myTile`)
                 } else if (blockSettings.readString("level").charAt(char) == "H") {
@@ -596,6 +622,7 @@ function Load () {
                     tiles.setTileAt(tiles.getTileLocation(y, x), assets.tile`myTile3`)
                 } else if (blockSettings.readString("level").charAt(char) == "c") {
                     tiles.setTileAt(tiles.getTileLocation(y, x), assets.tile`myTile4`)
+                    tiles.setWallAt(tiles.getTileLocation(y, x), true)
                 } else if (blockSettings.readString("level").charAt(char) == "1") {
                     tiles.setTileAt(tiles.getTileLocation(y, x), assets.tile`myTile5`)
                 } else if (blockSettings.readString("level").charAt(char) == "2") {
@@ -617,6 +644,7 @@ function Load () {
 }
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     if (play == 0) {
+        tiles.setWallAt(cursor.tilemapLocation(), true)
         if (brkslctd == 0) {
             tiles.setTileAt(cursor.tilemapLocation(), assets.tile`myTile`)
         } else if (brkslctd == 1) {
@@ -629,6 +657,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
             tiles.setTileAt(cursor.tilemapLocation(), assets.tile`myTile3`)
         } else if (brkslctd == 5) {
             tiles.setTileAt(cursor.tilemapLocation(), assets.tile`myTile4`)
+            tiles.setWallAt(cursor.tilemapLocation(), false)
         } else if (brkslctd == 6) {
             tiles.setTileAt(cursor.tilemapLocation(), assets.tile`myTile5`)
         } else if (brkslctd == 7) {
@@ -637,8 +666,10 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
             tiles.setTileAt(cursor.tilemapLocation(), assets.tile`myTile7`)
         } else if (brkslctd == 9) {
             tiles.setTileAt(cursor.tilemapLocation(), assets.tile`myTile8`)
+        } else {
+            tiles.setTileAt(cursor.tilemapLocation(), assets.tile`transparency16`)
+            tiles.setWallAt(cursor.tilemapLocation(), false)
         }
-        tiles.setWallAt(cursor.tilemapLocation(), true)
     } else {
         if (mySprite.isHittingTile(CollisionDirection.Bottom)) {
             mySprite.vy = -165
@@ -647,15 +678,13 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 controller.menu.onEvent(ControllerButtonEvent.Pressed, function () {
     story.startCutscene(function () {
-        story.showPlayerChoices("Save", "Load", "Create 1-1", "Make/Play", "Reset")
+        story.showPlayerChoices("Save", "Load", "Create 1-1", "Make/Play")
         if (story.getLastAnswer() == "Save") {
             Save()
         } else if (story.getLastAnswer() == "Load") {
             Load()
-        } else if (story.getLastAnswer() == "Delete Save Data") {
-            if (blockSettings.exists("level")) {
-                blockSettings.remove("level")
-            }
+        } else if (story.getLastAnswer() == "Create 1-1") {
+            tiles.setCurrentTilemap(tilemap`level1`)
         } else if (story.getLastAnswer() == "Make/Play") {
             if (play == 0) {
                 Play()
@@ -743,6 +772,7 @@ brick_selected = sprites.create(img`
 brick_selected.setStayInScreen(true)
 brkslctd = 0
 cursor.setFlag(SpriteFlag.GhostThroughWalls, true)
+cursor.setStayInScreen(true)
 forever(function () {
     brick_selected.setPosition(0, 0)
 })
